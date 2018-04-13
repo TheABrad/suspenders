@@ -36,4 +36,5 @@ rush to build something amazing; don't use it if you like missing deadlines.
   # Needed by the tests themselves
   s.add_development_dependency 'capybara-webkit'
   s.add_development_dependency 'factory_bot_rails'
+  s.add_development_dependency 'bullet'
 end
