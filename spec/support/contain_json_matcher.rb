@@ -1,4 +1,4 @@
-require 'json'
+require "json"
 
 RSpec::Matchers.define :contain_json do
   match do

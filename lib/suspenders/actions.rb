@@ -50,8 +50,8 @@ module Suspenders
 
       attr_reader :destination_root, :file, :data
 
-      def write_out(&block)
-        new_json = block.call(existing_json)
+      def write_out
+        new_json = yield(existing_json)
         IO.write(destination_file, JSON.pretty_generate(new_json))
       end
 
@@ -66,7 +66,7 @@ module Suspenders
       end
 
       def hash_unmerge(hash, subhash)
-        subhash.inject(hash) do |acc, (k, v)|
+        subhash.reduce(hash) do |acc, (k, v)|
           if hash.has_key?(k)
             if v == hash[k]
               acc.except(k)
