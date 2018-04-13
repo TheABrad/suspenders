@@ -71,7 +71,7 @@ module Suspenders
             if v == hash[k]
               acc.except(k)
             elsif v.is_a?(Hash)
-              acc.merge(k => hash[k].unmerge(v))
+              acc.merge(k => hash_unmerge(hash[k], v))
             else
               acc
             end
